@@ -1,0 +1,23 @@
+{
+	"name": "openthc/cloudprnt-server",
+	"description": "OpenTHC CloudPRNT Server",
+	"license": "MIT",
+	"autoload": {
+		"exclude-from-classmap": [
+			"vendor/erusev/parsedown-extra/test"
+		],
+		"psr-4": {
+			"OpenTHC\\CloudPRNT\\": "./lib",
+			"OpenTHC\\CloudPRNT\\Test\\": "./test"
+		}
+	},
+	"require": {
+		"openthc/common": "dev-master"
+	},
+	"require-dev": {
+		"phpmd/phpmd": "2.12.0",
+		"phpstan/phpstan": "1.7.8",
+		"phpunit/phpunit": "9.5.20",
+		"sebastian/phpcpd": "6.0.3"
+	}
+}
