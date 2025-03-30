@@ -1,11 +1,22 @@
 #!/bin/bash
 #
-# Installer
+# Install Helper
+#
+# SPDX-License-Identifier: MIT
 #
 
-composer install --no-ansi --no-dev --no-progress --quiet --classmap-authoritative
+set -o errexit
+set -o errtrace
+set -o nounset
+set -o pipefail
 
-npm install --quiet >/dev/null
+APP_ROOT=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+cd "$APP_ROOT"
+
+composer install --no-ansi --no-progress --classmap-authoritative
+
+npm install --no-audit --no-fund --package-lock-only
 
 mkdir -p var/
 chown -R www-data:www-data var/
